@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-950 text-white/90 font-sans antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(232, 137, 74, 0.75);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-ink-950 transition hover:brightness-110 active:scale-[0.98] disabled:opacity-50;
+    box-shadow: 0 8px 30px -10px rgba(232, 137, 74, 0.65);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-medium text-white/85 transition hover:bg-white/[0.08] active:scale-[0.98];
+  }
+
+  .btn-ghost-sm {
+    @apply inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm text-white/65 transition hover:text-white;
+  }
+
+  .glass {
+    @apply border border-white/10 bg-ink-900/60 backdrop-blur-xl;
+    box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.6);
+  }
+
+  .dotted-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .ts-range {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full outline-none disabled:cursor-not-allowed;
+    background: linear-gradient(
+      to right,
+      #e8894a 0%,
+      #e8894a var(--fill, 50%),
+      rgba(255, 255, 255, 0.14) var(--fill, 50%),
+      rgba(255, 255, 255, 0.14) 100%
+    );
+  }
+
+  .ts-range::-webkit-slider-thumb {
+    @apply h-5 w-5 cursor-pointer appearance-none rounded-full border-0;
+    background: #f3f1ee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .ts-range::-moz-range-thumb {
+    @apply h-5 w-5 cursor-pointer rounded-full border-0;
+    background: #f3f1ee;
+  }
+
+  .fade-up {
+    animation: fade-up 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
