@@ -16,8 +16,10 @@ npm run preview      # serve the production build
 
 ## Deploy to GitHub Pages
 
-Pushing to `main` builds the site and deploys it to GitHub Pages. After the
-first successful deployment, open
+Before the first deployment, open the repository's **Settings → Pages** and
+select **GitHub Actions** as the build and deployment source. Then rerun the
+failed **Deploy to GitHub Pages** workflow in the Actions tab. Later pushes to
+`main` build and deploy automatically. After deployment, open
 `https://larts0829.github.io/tracespace/`. Camera access works over this HTTPS
 URL.
 
